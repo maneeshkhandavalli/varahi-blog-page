@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Varahi Healthy Bowls — Wellness in Every Bite</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --papaya: #F4874B;
+    --mango: #F2C94C;
+    --leaf: #3D6B45;
+    --leaf-light: #5A8C5F;
+    --soil: #7B5C3E;
+    --cream: #FAF6EE;
+    --cream-dark: #F0E8D8;
+    --grape: #6B4E71;
+    --watermelon: #D45B5B;
+    --text: #2C2416;
+    --text-muted: #6B5C47;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 48px;
+    background: rgba(250, 246, 238, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(61,107,69,0.12);
+  }
+
+  .nav-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--leaf);
+    letter-spacing: 0.02em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--leaf); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 120px 0 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 60% at 80% 50%, rgba(242,201,76,0.15) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 50% at 20% 70%, rgba(61,107,69,0.1) 0%, transparent 60%);
+  }
+
+  .hero-left {
+    padding: 0 48px 0 80px;
+    position: relative;
+    z-index: 2;
+    animation: fadeUp 1s ease both;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: var(--leaf);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 100px;
+    margin-bottom: 28px;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 5vw, 5.5rem);
+    font-weight: 800;
+    line-height: 1.05;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+
+  .hero h1 span {
+    color: var(--leaf);
+    font-style: italic;
+  }
+
+  .hero-tagline {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 28px;
+    letter-spacing: 0.02em;
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+    max-width: 440px;
+    margin-bottom: 48px;
+  }
+
+  .hero-pills {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+  }
+
+  .pill {
+    background: var(--cream-dark);
+    border: 1px solid rgba(61,107,69,0.2);
+    padding: 8px 18px;
+    border-radius: 100px;
+    font-size: 0.82rem;
+    color: var(--leaf);
+    font-weight: 400;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--leaf);
+    color: #fff;
+    padding: 16px 36px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: background 0.2s, transform 0.2s;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover {
+    background: var(--leaf-light);
+    transform: translateY(-2px);
+  }
+
+  .btn-wa {
+    background: #25D366;
+  }
+  .btn-wa:hover { background: #1ebe5d; }
+
+  .hero-right {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeUp 1s 0.2s ease both;
+  }
+
+  .bowl-visual {
+    width: 460px;
+    height: 460px;
+    position: relative;
+  }
+
+  .bowl-circle {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 35%, #f9f3e8 0%, var(--cream-dark) 60%, rgba(61,107,69,0.12) 100%);
+    box-shadow:
+      0 40px 80px rgba(61,107,69,0.18),
+      0 8px 24px rgba(0,0,0,0.08),
+      inset 0 -20px 40px rgba(123,92,62,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bowl-inner-text {
+    text-align: center;
+    padding: 40px;
+  }
+
+  .bowl-inner-text .big-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    font-weight: 800;
+    color: var(--leaf);
+    line-height: 1;
+    display: block;
+  }
+
+  .bowl-inner-text .big-label {
+    font-size: 0.85rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+
+  .bowl-inner-text .divider {
+    width: 40px;
+    height: 2px;
+    background: var(--mango);
+    margin: 16px auto;
+    border-radius: 2px;
+  }
+
+  .bowl-inner-text .bowl-stat {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.9;
+  }
+
+  .floating-tag {
+    position: absolute;
+    background: #fff;
+    border-radius: 16px;
+    padding: 10px 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    font-size: 0.8rem;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .tag-1 { top: 40px; left: -20px; color: var(--leaf); border-left: 3px solid var(--leaf); }
+  .tag-2 { bottom: 80px; right: -30px; color: var(--papaya); border-left: 3px solid var(--papaya); }
+  .tag-3 { top: 160px; right: -40px; color: var(--grape); border-left: 3px solid var(--grape); }
+
+  /* SECTIONS SHARED */
+  section {
+    padding: 100px 80px;
+  }
+
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--papaya);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text);
+    margin-bottom: 16px;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--leaf);
+  }
+
+  .section-sub {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.75;
+    max-width: 560px;
+  }
+
+  /* WHY US */
+  .why-section {
+    background: var(--leaf);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .why-section::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
+
+  .why-section::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -80px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.03);
+  }
+
+  .why-section .section-label { color: var(--mango); }
+  .why-section .section-title { color: #fff; }
+  .why-section .section-sub { color: rgba(255,255,255,0.7); }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 60px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .why-card {
+    background: rgba(255,255,255,0.06);
+    padding: 36px 32px;
+    border-radius: 0;
+    transition: background 0.3s;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .why-card:hover { background: rgba(255,255,255,0.1); }
+
+  .why-icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(255,255,255,0.12);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+  }
+
+  .why-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+
+  .why-card p {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.7;
+  }
+
+  /* MENU */
+  .menu-section {
+    background: var(--cream);
+  }
+
+  .menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 60px;
+  }
+
+  .bowl-formula {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--cream-dark);
+    border: 1px solid rgba(61,107,69,0.15);
+    padding: 14px 24px;
+    border-radius: 12px;
+  }
+
+  .formula-item {
+    text-align: center;
+  }
+
+  .formula-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--leaf);
+    line-height: 1;
+  }
+
+  .formula-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  .formula-plus {
+    font-size: 1rem;
+    color: var(--text-muted);
+    font-weight: 300;
+  }
+
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .day-card {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(61,107,69,0.1);
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+
+  .day-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 48px rgba(61,107,69,0.14);
+  }
+
+  .day-card-top {
+    padding: 24px 24px 0;
+  }
+
+  .day-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .day-theme {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-top: 2px;
+    margin-bottom: 20px;
+  }
+
+  .ingredient-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+    align-items: flex-start;
+  }
+
+  .ing-type {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    background: var(--cream-dark);
+    padding: 3px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    margin-top: 1px;
+    min-width: 60px;
+    text-align: center;
+  }
+
+  .ing-items {
+    font-size: 0.88rem;
+    color: var(--text);
+    line-height: 1.5;
+  }
+
+  .day-card-bottom {
+    margin-top: 20px;
+    padding: 16px 24px;
+    background: var(--cream);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    border-top: 1px solid var(--cream-dark);
+  }
+
+  .stat-item { text-align: center; }
+
+  .stat-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--leaf);
+  }
+
+  .stat-key {
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  /* accent colors per day */
+  .day-card:nth-child(1) .day-name { color: #3D6B45; }
+  .day-card:nth-child(2) .day-name { color: #C8860A; }
+  .day-card:nth-child(3) .day-name { color: #5B6FA8; }
+  .day-card:nth-child(4) .day-name { color: #6B4E71; }
+  .day-card:nth-child(5) .day-name { color: #3D6B45; }
+  .day-card:nth-child(6) .day-name { color: #C04E4E; }
+
+  /* PRICING */
+  .pricing-section {
+    background: var(--cream-dark);
+    text-align: center;
+  }
+
+  .pricing-section .section-title,
+  .pricing-section .section-sub { margin-left: auto; margin-right: auto; }
+  .pricing-section .section-label { text-align: center; }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 60px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .price-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 40px 32px;
+    border: 2px solid transparent;
+    transition: transform 0.25s, box-shadow 0.25s;
+    position: relative;
+    text-align: left;
+  }
+
+  .price-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+  }
+
+  .price-card.featured {
+    background: var(--leaf);
+    border-color: var(--leaf);
+    transform: scale(1.04);
+  }
+
+  .price-card.featured:hover { transform: scale(1.04) translateY(-4px); }
+
+  .featured-badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--mango);
+    color: var(--text);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 16px;
+    border-radius: 100px;
+  }
+
+  .plan-name {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+
+  .price-card.featured .plan-name { color: rgba(255,255,255,0.7); }
+
+  .plan-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .plan-price sup {
+    font-size: 1.4rem;
+    vertical-align: super;
+    font-weight: 400;
+  }
+
+  .price-card.featured .plan-price { color: #fff; }
+
+  .plan-desc {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    margin-bottom: 28px;
+    line-height: 1.6;
+  }
+
+  .price-card.featured .plan-desc { color: rgba(255,255,255,0.7); }
+
+  .plan-perks {
+    list-style: none;
+    margin-bottom: 32px;
+  }
+
+  .plan-perks li {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    padding: 8px 0;
+    border-bottom: 1px solid var(--cream);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .price-card.featured .plan-perks li {
+    color: rgba(255,255,255,0.8);
+    border-bottom-color: rgba(255,255,255,0.1);
+  }
+
+  .perk-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--leaf);
+    flex-shrink: 0;
+  }
+
+  .price-card.featured .perk-dot { background: var(--mango); }
+
+  .plan-cta {
+    display: block;
+    text-align: center;
+    padding: 14px;
+    border-radius: 100px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    background: var(--cream);
+    color: var(--leaf);
+    border: 1px solid rgba(61,107,69,0.2);
+    transition: all 0.2s;
+  }
+
+  .plan-cta:hover {
+    background: var(--leaf);
+    color: #fff;
+    border-color: var(--leaf);
+  }
+
+  .price-card.featured .plan-cta {
+    background: #fff;
+    color: var(--leaf);
+    border-color: transparent;
+  }
+
+  .price-note {
+    margin-top: 40px;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  /* CONTACT */
+  .contact-section {
+    background: var(--text);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-section::before {
+    content: '';
+    position: absolute;
+    top: -120px; right: -120px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(61,107,69,0.3) 0%, transparent 70%);
+  }
+
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .contact-left .section-label { color: var(--mango); }
+  .contact-left .section-title { color: #fff; }
+  .contact-left .section-sub { color: rgba(255,255,255,0.6); margin-bottom: 40px; }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+
+  .contact-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: rgba(255,255,255,0.75);
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  .contact-icon {
+    width: 36px;
+    height: 36px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .contact-row a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .contact-row a:hover { color: var(--mango); }
+
+  .wa-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: #25D366;
+    color: #fff;
+    padding: 18px 36px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    box-shadow: 0 8px 24px rgba(37,211,102,0.3);
+  }
+
+  .wa-btn:hover {
+    background: #1ebe5d;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(37,211,102,0.4);
+  }
+
+  .contact-right {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 24px;
+    padding: 40px;
+  }
+
+  .contact-right h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: #fff;
+    margin-bottom: 28px;
+  }
+
+  .info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    font-size: 0.88rem;
+  }
+
+  .info-row:last-child { border-bottom: none; }
+
+  .info-key {
+    color: rgba(255,255,255,0.45);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .info-val {
+    color: rgba(255,255,255,0.85);
+    font-weight: 400;
+    text-align: right;
+  }
+
+  .delivery-note {
+    margin-top: 20px;
+    padding: 14px 18px;
+    background: rgba(242,201,76,0.1);
+    border: 1px solid rgba(242,201,76,0.2);
+    border-radius: 10px;
+    font-size: 0.82rem;
+    color: var(--mango);
+    line-height: 1.6;
+  }
+
+  /* FOOTER */
+  footer {
+    background: rgba(0,0,0,0.3);
+    padding: 28px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .footer-brand span { color: rgba(255,255,255,0.75); }
+
+  .footer-tagline {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.35);
+    font-style: italic;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    section { padding: 70px 24px; }
+    .hero { grid-template-columns: 1fr; padding: 120px 24px 60px; }
+    .hero-left { padding: 0; }
+    .hero-right { display: none; }
+    .why-grid { grid-template-columns: 1fr 1fr; }
+    .menu-grid { grid-template-columns: 1fr; }
+    .menu-header { flex-direction: column; align-items: flex-start; gap: 24px; }
+    .pricing-grid { grid-template-columns: 1fr; max-width: 380px; }
+    .price-card.featured { transform: none; }
+    .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+    footer { flex-direction: column; gap: 8px; text-align: center; padding: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">Varahi</div>
+  <ul class="nav-links">
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#pricing">Plans</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="https://wa.me/919849701250" class="btn-primary btn-wa" style="padding:10px 22px;font-size:0.82rem;" target="_blank">Order on WhatsApp</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-left">
+    <span class="hero-badge">100% Natural &amp; Hygienic</span>
+    <h1>Varahi<br><span>Healthy</span><br>Bowls</h1>
+    <p class="hero-tagline">— Wellness in Every Bite —</p>
+    <p class="hero-desc">Fresh, nutritious bowls prepared every morning from locally sourced ingredients and delivered to your door in eco-friendly steel boxes. No plastic. Just goodness.</p>
+    <div class="hero-pills">
+      <span class="pill">6 Days a Week</span>
+      <span class="pill">Free Delivery &lt;10 km</span>
+      <span class="pill">7:00 – 8:30 AM</span>
+    </div>
+    <a href="https://wa.me/919849701250" class="btn-primary btn-wa" target="_blank">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      Start Your Plan
+    </a>
+  </div>
+  <div class="hero-right">
+    <div class="bowl-visual">
+      <div class="bowl-circle">
+        <div class="bowl-inner-text">
+          <span class="big-num">7</span>
+          <span class="big-label">Bowl types</span>
+          <div class="divider"></div>
+          <p class="bowl-stat">
+            Energy Bowl · Detox Bowl<br>
+            Protein Bowl · Fitness Bowl<br>
+            Tasty Bowl · Immunity Bowl<br>
+            Oatmeal Bowl
+          </p>
+        </div>
+      </div>
+      <div class="floating-tag tag-1">Fresh daily ingredients</div>
+      <div class="floating-tag tag-2">Steel box delivery</div>
+      <div class="floating-tag tag-3">Protein rich bowls</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why-section" id="why">
+  <div class="section-label">Why Varahi</div>
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:0;">
+    <div>
+      <h2 class="section-title">Crafted with care,<br><em>delivered with warmth</em></h2>
+    </div>
+    <p class="section-sub" style="max-width:360px;">We believe healthy food should never feel like a compromise. Every bowl is built to nourish and satisfy.</p>
+  </div>
+  <div class="why-grid reveal">
+    <div class="why-card">
+      <div class="why-icon">🌿</div>
+      <h3>Fresh Ingredients Daily</h3>
+      <p>Sourced from local farmers every morning. Every bite is vibrant, seasonal, and full of natural vitality.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">✨</div>
+      <h3>Hygienic Preparation</h3>
+      <p>Prepared in an immaculate kitchen, adhering to the highest standards of culinary safety every single day.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">💪</div>
+      <h3>Protein Rich</h3>
+      <p>Carefully balanced macros to fuel your day, support recovery, and keep your energy levels steady.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🫙</div>
+      <h3>Steel Box Delivery</h3>
+      <p>Zero plastic. Delivered in traditional, reusable stainless steel boxes to protect your food and the earth.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🏠</div>
+      <h3>Homemade Taste</h3>
+      <p>Crafted with traditional recipes and a mother's touch, providing comfort food that also nourishes.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🥗</div>
+      <h3>Healthy and Filling</h3>
+      <p>Generous portions filled with complex carbohydrates and fiber to keep you satisfied until your next meal.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="menu-section" id="menu">
+  <div class="menu-header">
+    <div>
+      <div class="section-label">Weekly Menu</div>
+      <h2 class="section-title">Six days,<br><em>six different bowls</em></h2>
+    </div>
+    <div class="bowl-formula">
+      <div class="formula-item">
+        <div class="formula-num">3</div>
+        <div class="formula-label">Fruits</div>
+      </div>
+      <div class="formula-plus">+</div>
+      <div class="formula-item">
+        <div class="formula-num">2</div>
+        <div class="formula-label">Veggies</div>
+      </div>
+      <div class="formula-plus">+</div>
+      <div class="formula-item">
+        <div class="formula-num">1</div>
+        <div class="formula-label">Protein</div>
+      </div>
+      <div class="formula-plus">+</div>
+      <div class="formula-item">
+        <div class="formula-num">1</div>
+        <div class="formula-label">Nuts</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-grid reveal">
+    <!-- Monday -->
+    <div class="day-card">
+      <div class="day-card-top">
+        <div class="day-name">Monday</div>
+        <div class="day-theme">Light &amp; Fresh</div>
+        <div class="ingredient-row">
+          <span class="ing-type">Fruits</span>
+          <span class="ing-items">Watermelon, Papaya, Grapes</span>
+        </div>
+        <div class="ingredient-row">
+          <span class="ing-type">Veggies</span>
+          <span class="ing-items">Mixed Veggies Salad</span>
+        </div>
+        <div class="ingredient-row">
+          <span class="ing-type">Protein</span>
+          <span class="ing-items">Roasted Chana Salad</span>
+        </div>
+        <div class="ingredient-row">
+          <span class="ing-type">Nuts</span>
+          <span class="ing-items">Soaked Almonds</span>
+        </div>
+      </div>
+      <div class="day-card-bottom">
+        <div class="stat-item"><div class="stat-val">587</div><div class="stat-key">Kcal</div></div>
+        <div class="stat-item"><div class="stat-val">25.3g</div><div class="stat-key">Protein</div></div>
+        <div class="stat-item"><div class="stat-val">97g</div><div class="stat-key">Carbs</div></div>
+        <div class="stat-item"><div class="stat-val">12g</div><div class="stat-key">Fat</div></div>
+      </div>
+    </div>
+
+    <!-- Tuesday -->
+    <div class="day-card">
+      <div class="day-card-top">
+        <div class="day-name">Tuesday</div>
+        <div class="day-theme">Energy Boost</div>
+        <div class="ingredient-row">
+          <span class="ing-type">Fruits</span>
+          <span class="ing-items">Banana, Apple, Muskmelon</span>
+        </div>
+        <div class="ingredient-row">
+          <span class="ing-type">Veggies</span>
+          <span class="ing-items">Cucumber, Carrot</span>
+        </div>
+        <div class="ingredient-row">
+          <span class="ing-type">Protein</span>
+          <span class="ing-items">Sweetcorn + Peanut Salad</span>
+        </div>
+        <div class="ingredient-row">
+          <span class="ing-type">Nuts</span>
+          <span class="ing-items">Soaked Dates</span>
+        </div>
+      </div>
+      <div class="day-card-bottom">
+        <div class="stat-item"><div class="stat-val">855</div><div class="stat-key">Kcal</div></div>
+        <div class="stat-item"><div class="stat-val">25.8g</div><div class="stat-key">Protein</div></div>
+        <div class="stat-item"><div class="stat-val">117g</div><div class="stat-key">Carbs</div></div>
+        <div class="stat-item"><div class="stat-val">41g</div><div class="stat-key">Fat</div></div>
+      </div>
+    </div>
+
+    <!-- Wednesday -->
+    <div class="day-card">
+      <div class="day-card-top">
+        <div class="day-name">Wednesday</div>
+        <div class="day-theme">Protein Focus</div>
+        <div class="ingredient-row">
+          <span class="ing-type">Fruits</span>
+          <span class="ing-items">Grapes, Pineapple, Orange</span>
+        </div>
+        <div class="ingredient-row">
+          <span class="ing-type">Veggies</span>
+          <span class="ing-items">Cucumber, Beetroot</span>
+        </div>
+        <div class="ingredient-row">
+          <span class="ing-type">Protein</span>
+          <span class="ing-items">Rajma + Chana Salad</span>
+        </div>
+        <div class="ingredient-row">
+          <span class="ing-type">Seeds</span>
+          <span class="ing-items">Soaked Walnuts</span>
+        </div>
+      </div>
+      <div class="day-card-bottom">
+        <div class="stat-item"><div class="stat-val">750</div><div class="stat-key">Kcal</div></div>
+        <div class="stat-item"><div class="stat-val">25.9g</div><div class="stat-key">Protein</div></div>
+        <div class="stat-item"><div class="stat-val">99g</div><div class="stat-key">Carbs</div></div>
+        <div class="stat-item"><div class="stat-val">31g</div><div class="stat-key">Fat</div></div>
+      </div>
+    </div>
+
+    <!-- Thursday -->
+    <div class="day-card">
+      <div class="day-card-top">
+        <div class="day-name">Thursday</div>
+        <div class="day-theme">Premium Day</div>
+        <div class="ingredient-row">
+          <span class="ing-type">Fruits</span>
+          <span class="ing-items">Watermelon, Dragon Fruit, Kiwi</span>
+        </div>
+        <div class="ingredient-row">
+          <span class="ing-type">Veggies</span>
+          <span class="ing-items">Mixed Veggies Salad</span>
+        </div>
+        <div class="ingredient-row">
+          <span class="ing-type">Protein</span>
+          <span class="ing-items">Paneer Salad</span>
+        </div>
+        <div class="ingredient-row">
+          <span class="ing-type">Seeds</span>
+          <span class="ing-items">Sunflower Seeds</span>
+        </div>
+      </div>
+      <div class="day-card-bottom">
+        <div class="stat-item"><div class="stat-val">488</div><div class="stat-key">Kcal</div></div>
+        <div class="stat-item"><div class="stat-val">24.4g</div><div class="stat-key">Protein</div></div>
+        <div class="stat-item"><div class="stat-val">43g</div><div class="stat-key">Carbs</div></div>
+        <div class="stat-item"><div class="stat-val">26g</div><div class="stat-key">Fat</div></div>
+      </div>
+    </div>
+
+    <!-- Friday -->
+    <div class="day-card">
+      <div class="day-card-top">
+        <div class="day-name">Friday</div>
+        <div class="day-theme">Fitness Bowl</div>
+        <div class="ingredient-row">
+          <span class="ing-type">Fruits</span>
+          <span class="ing-items">Sweet Cucumber, Muskmelon, Mango</span>
+        </div>
+        <div class="ingredient-row">
+          <span class="ing-type">Veggies</span>
+          <span class="ing-items">Carrot, Beetroot</span>
+        </div>
+        <div class="ingredient-row">
+          <span class="ing-type">Protein</span>
+          <span class="ing-items">Green Peas + Peanuts Salad</span>
+        </div>
+        <div class="ingredient-row">
+          <span class="ing-type">Dry Fruit</span>
+          <span class="ing-items">Soaked Raisins</span>
+        </div>
+      </div>
+      <div class="day-card-bottom">
+        <div class="stat-item"><div class="stat-val">621</div><div class="stat-key">Kcal</div></div>
+        <div class="stat-item"><div class="stat-val">24.5g</div><div class="stat-key">Protein</div></div>
+        <div class="stat-item"><div class="stat-val">59g</div><div class="stat-key">Carbs</div></div>
+        <div class="stat-item"><div class="stat-val">38g</div><div class="stat-key">Fat</div></div>
+      </div>
+    </div>
+
+    <!-- Saturday -->
+    <div class="day-card">
+      <div class="day-card-top">
+        <div class="day-name">Saturday</div>
+        <div class="day-theme">Special Mix</div>
+        <div class="ingredient-row">
+          <span class="ing-type">Fruits</span>
+          <span class="ing-items">Apple, Papaya, Tati Munjalu</span>
+        </div>
+        <div class="ingredient-row">
+          <span class="ing-type">Veggies</span>
+          <span class="ing-items">Mixed Veggies Salad</span>
+        </div>
+        <div class="ingredient-row">
+          <span class="ing-type">Protein</span>
+          <span class="ing-items">Roasted Chana Salad</span>
+        </div>
+        <div class="ingredient-row">
+          <span class="ing-type">Nuts</span>
+          <span class="ing-items">Mixed Dry Fruits</span>
+        </div>
+      </div>
+      <div class="day-card-bottom">
+        <div class="stat-item"><div class="stat-val">587</div><div class="stat-key">Kcal</div></div>
+        <div class="stat-item"><div class="stat-val">24.3g</div><div class="stat-key">Protein</div></div>
+        <div class="stat-item"><div class="stat-val">99g</div><div class="stat-key">Carbs</div></div>
+        <div class="stat-item"><div class="stat-val">11g</div><div class="stat-key">Fat</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="section-label">Plans &amp; Pricing</div>
+  <h2 class="section-title">Choose your <em>wellness plan</em></h2>
+  <p class="section-sub">Individual bowls, weekly and monthly subscriptions available. All plans include fresh daily preparation.</p>
+
+  <div class="pricing-grid reveal">
+    <div class="price-card">
+      <div class="plan-name">Individual</div>
+      <div class="plan-price"><sup>₹</sup>80<span style="font-size:1.2rem;font-weight:300;">+</span></div>
+      <div class="plan-desc">Per bowl · Order anytime</div>
+      <ul class="plan-perks">
+        <li><span class="perk-dot"></span>Single bowl per order</li>
+        <li><span class="perk-dot"></span>No commitment required</li>
+        <li><span class="perk-dot"></span>Steel box delivery</li>
+        <li><span class="perk-dot"></span>Fresh daily preparation</li>
+      </ul>
+      <a href="https://wa.me/919849701250" class="plan-cta" target="_blank">Order Now</a>
+    </div>
+
+    <div class="price-card featured">
+      <div class="featured-badge">Most Popular</div>
+      <div class="plan-name">Weekly</div>
+      <div class="plan-price"><sup>₹</sup>500</div>
+      <div class="plan-desc">6 days a week · 6 different bowls</div>
+      <ul class="plan-perks">
+        <li><span class="perk-dot"></span>6 unique bowls per week</li>
+        <li><span class="perk-dot"></span>Free delivery under 10 km</li>
+        <li><span class="perk-dot"></span>7:00 – 8:30 AM delivery</li>
+        <li><span class="perk-dot"></span>Steel box, zero plastic</li>
+      </ul>
+      <a href="https://wa.me/919849701250" class="plan-cta" target="_blank">Start This Week</a>
+    </div>
+
+    <div class="price-card">
+      <div class="plan-name">Monthly</div>
+      <div class="plan-price"><sup>₹</sup>1800</div>
+      <div class="plan-desc">26 days · 26 different bowls · Best value</div>
+      <ul class="plan-perks">
+        <li><span class="perk-dot"></span>26 unique bowls per month</li>
+        <li><span class="perk-dot"></span>Free delivery under 10 km</li>
+        <li><span class="perk-dot"></span>7:00 – 8:30 AM delivery</li>
+        <li><span class="perk-dot"></span>Priority WhatsApp support</li>
+      </ul>
+      <a href="https://wa.me/919849701250" class="plan-cta" target="_blank">Subscribe Monthly</a>
+    </div>
+  </div>
+  <p class="price-note">All items are subject to availability. Nutritional values are estimates and may vary slightly.</p>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="contact-left">
+      <div class="section-label">Get In Touch</div>
+      <h2 class="section-title">Ready to eat<br><em>healthy every day?</em></h2>
+      <p class="section-sub">Place your order on WhatsApp or call us directly. We'll get you started on a plan that fits your routine.</p>
+
+      <div class="contact-details">
+        <div class="contact-row">
+          <div class="contact-icon">📞</div>
+          <div>
+            <a href="tel:+919849701250">+91 98497 01250</a><br>
+            <a href="tel:+919391538808">+91 93915 38808</a>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon">✉️</div>
+          <div><a href="mailto:varahibowls@gmail.com">varahibowls@gmail.com</a></div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon">📍</div>
+          <div>Buddinilayam, Adithya Enclave,<br>Mancherial, Telangana</div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon">🕐</div>
+          <div>Delivery window: 7:00 – 8:30 AM<br>Monday to Saturday</div>
+        </div>
+      </div>
+
+      <a href="https://wa.me/919849701250" class="wa-btn" target="_blank">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Order on WhatsApp
+      </a>
+    </div>
+
+    <div class="contact-right">
+      <h3>Delivery Information</h3>
+      <div class="info-row">
+        <span class="info-key">Free Delivery</span>
+        <span class="info-val">Within 10 km radius</span>
+      </div>
+      <div class="info-row">
+        <span class="info-key">Delivery Time</span>
+        <span class="info-val">7:00 AM – 8:30 AM</span>
+      </div>
+      <div class="info-row">
+        <span class="info-key">Days Active</span>
+        <span class="info-val">Monday – Saturday</span>
+      </div>
+      <div class="info-row">
+        <span class="info-key">Packaging</span>
+        <span class="info-val">Stainless steel box</span>
+      </div>
+      <div class="info-row">
+        <span class="info-key">WhatsApp Orders</span>
+        <span class="info-val">Available</span>
+      </div>
+      <div class="info-row">
+        <span class="info-key">Location</span>
+        <span class="info-val">Mancherial, Telangana</span>
+      </div>
+      <div class="delivery-note">
+        Note: A delivery charge of ₹100 applies for orders to CCC Sri Rampoor area.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:#1a1208;">
+  <div class="footer-brand"><span>Varahi Healthy Bowls</span></div>
+  <div class="footer-tagline">Eat Healthy · Stay Happy</div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => observer.observe(r));
+</script>
+</body>
+</html>
